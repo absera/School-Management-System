@@ -3,7 +3,6 @@ Project Name: School Management System
 Author: Absera Temesgen
 Email: abseratemesgen@gmail.com
 Starting Date: January 2021
-Updated here
 """
 
 from flask import Flask, render_template, redirect, request, url_for
@@ -11,7 +10,7 @@ from db import GradeDB, StudentDB
 from model import GradeFromRaw, StudentsFromRaw
 
 app = Flask(__name__)
-app.secret_key = "ntawxerjwt"
+app.secret_key = "kljaldksfjaiwoefjaskldjalskdfjaklsdjfaklsdfjaklsdfj"
 
 
 ##################################################

@@ -23,17 +23,37 @@ President: {{ grade.class_president }}<br>
 Number of Students: {{ grade.number_of_students }}<br>
 Graduation Year: {{ grade.graduation_year }}<br>
 <hr>
-<a href="/grades/{{ grade.grade_id }}/students/add">Add New Student</a><br>
-{% if students %}
-Students: <br>
-{% for student in students %}
-<a href="/grades/{{ student.grade }}/students/{{ student.id }}">{{ student.name }}</a>
-<a href="/grades/{{ student.grade }}/students/{{ student.id  }}/update">Update</a>
-<a href="/grades/{{ student.grade }}/students/{{ student.id  }}/delete" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
-<br>
-{% endfor %}
-{% endif %}
+<a href="/grades/{{ grade.grade_id }}/students/add">
+    <button class="btn btn-primary">Add New Student</button>
+</a><br>
 {% else %}
 Grade does not exist
+{% endif %}
+
+{% if students %}
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Age</th>
+      <th scope="col">Email</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for student in students %}
+    <tr>
+      <td><a href="/grades/{{ student.grade }}/students/{{ student.id }}">{{ student.name }}</a></td>
+      <td>{{ student.gender }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.email }}</td>
+      <td><a href="/grades/{{ student.grade }}/students/{{ student.id  }}/update"><i class="fa fa-edit"></i></a></td>
+      <td><a href="/grades/{{ student.grade }}/students/{{ student.id  }}/delete" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
 {% endif %}
 {% endblock %}
