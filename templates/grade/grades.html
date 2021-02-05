@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Grades
+{% endblock %}
+
+{% block content %}
+<h1>Grades</h1>
+<a href="/grades/add">Add New Grade</a>
+<hr>
+{% if grades %}
+{% for grade in grades %}
+<a href="/grades/{{ grade.grade_id }}">{{ grade.name }}   </a>
+<a href="/grades/{{ grade.grade_id }}/delete" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+<a href="/grades/{{ grade.grade_id }}/update">Update</a><br>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

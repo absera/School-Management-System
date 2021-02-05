@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="/grades/add" method="post">
+    <input name="grade-name" type="text" placeholder="Grade Name"><br>
+    <textarea name="description" cols="30" rows="10" placeholder="Some Description"></textarea><br>
+    <input name="home-room" type="text" placeholder="Home Room Teacher"><br>
+    <input name="president" type="text" placeholder="Class President"><br>
+    <input name="n-of-students" type="number" placeholder="Number of Students"><br>
+    <input name="graduation-year" type="text" placeholder="Graduation Year"><br>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

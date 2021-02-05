@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update {{ grade.name }}
+{% endblock %}
+
+{% block content %}
+{% if grade %}
+<form action="/grades/{{ grade.grade_id }}/update" method="POST">
+    <input type="number" value="{{ grade.grade_id }}"><br>
+    <input name="grade-name" type="text" value="{{ grade.name }}"><br>
+    <textarea name="description" cols="30" rows="10" placeholder="{{ grade.description }}"></textarea><br>
+    <input name="home-room" type="text" value="{{ grade.home_room }}"><br>
+    <input name="president" type="text" value="{{ grade.class_president }}"><br>
+    <input name="n-of-students" type="number" value="{{ grade.number_of_students }}"><br>
+    <input name="graduation-year" type="text" value="{{ grade.graduation_year }}"><br>
+    <button type="submit">Submit</button>
+</form>
+{% endif %}
+{% endblock %}

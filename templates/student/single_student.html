@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+
+{% block content  %}
+{% if student %}
+<h1>Student</h1><br>
+Name: {{ student.name }}<br>
+Gender: {{ student.gender }}<br>
+Age: {{ student.age }} <br>
+Email: {{ student.email }}<br>
+Parent Phone: {{ student.parent_phone }}<br>
+Student Phone: {{ student.phone_number }}<br>
+School ID: {{ student.school_id }}<br>
+Locker Key Number: {{ student.locker_key_number }}<br>
+{% endif %}
+{% endblock %}

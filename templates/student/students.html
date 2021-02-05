@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Seach Students
+{% endblock %}
+
+{% block content %}
+
+<br>
+<form action="/students" method="post">
+    <input type="text" name="search-input" placeholder="Search Student" required="True">
+    <button type="submit">Search</button>
+</form><br>
+{% if students %}
+{% for student in students %}
+<a href="/grades/{{ student.grade }}/students/{{ student.id }}">{{ student.name }}</a>
+<a href="/grades/{{ student.grade }}/students/{{ student.id  }}/update">Update</a>
+<a href="/students/{{ student.id  }}/delete" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+<br>
+{% endfor %}
+{% endif %}
+{% endblock %}

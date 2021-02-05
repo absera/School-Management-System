@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% if grade %}
+    {{ grade.name }}
+{% else %}
+    Grade Doesn't Exist
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if grade %}
+
+<h1>Grade {{ grade.name }} </h1><br>
+<a href="/grades/{{ grade.grade_id }}/update">Update</a>
+<a href="/grades/{{ grade.grade_id }}/delete" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+<hr>
+
+Name: {{ grade.name }}<br>
+Description: {{ grade.description }}<br>
+Home Room: {{ grade.home_room }}<br>
+President: {{ grade.class_president }}<br>
+Number of Students: {{ grade.number_of_students }}<br>
+Graduation Year: {{ grade.graduation_year }}<br>
+<hr>
+<a href="/grades/{{ grade.grade_id }}/students/add">Add New Student</a><br>
+{% if students %}
+Students: <br>
+{% for student in students %}
+<a href="/grades/{{ student.grade }}/students/{{ student.id }}">{{ student.name }}</a>
+<a href="/grades/{{ student.grade }}/students/{{ student.id  }}/update">Update</a>
+<a href="/grades/{{ student.grade }}/students/{{ student.id  }}/delete" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+<br>
+{% endfor %}
+{% endif %}
+{% else %}
+Grade does not exist
+{% endif %}
+{% endblock %}

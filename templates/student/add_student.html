@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if grade_id %}
+    <form action="/grades/{{ grade_id }}/students/add" method="post">
+    <input name="full-name" placeholder="Full Name" type="text" required="True"><br>
+    <input name="gender" placeholder="Gender" type="text"><br>
+    <input name="age" placeholder="Age" type="number"><br>
+    <input name="email" placeholder="Email" type="email"><br>
+    <input name="parent-phone" placeholder="Parent Phone" type="text"><br>
+    <input name="student-phone" placeholder="Student Phone" type="text"><br>
+    <input name="school-id" placeholder="School ID" type="text"><br>
+    <input name="locker-key-number" placeholder="Locker Key Number" type="text"><br>
+    <button type="submit">Submit</button>
+</form>
+{% endif %}
+{% endblock %}

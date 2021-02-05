@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update Student Data
+{% endblock %}
+
+{% block content %}
+{% if student %}
+<form action="/grades/{{ student.grade }}/students/{{ student.id  }}/update" method="post">
+    <input name="full-name" value="{{ student.name }}" type="text"><br>
+    <input name="gender" value="{{ student.gender }}" type="text"><br>
+    <input name="age" value="{{ student.age }}" type="number"><br>
+    <input name="email" value="{{ student.email }}" type="email"><br>
+    <input name="parent-phone" value="{{ student.parent_phone }}" type="text"><br>
+    <input name="student-phone" value="{{ student.student_phone }}" type="text"><br>
+    <input name="school-id" value="{{ student.school_id }}" type="text"><br>
+    <input name="locker-key-number" value="{{ student.locker_key_number }}" type="text"><br>
+    <button type="submit">Submit</button>
+</form>
+{% else %}
+There is no student
+{% endif %}
+{% endblock %}
