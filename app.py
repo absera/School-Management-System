@@ -3,6 +3,7 @@ Project Name: School Management System
 Author: Absera Temesgen
 Email: abseratemesgen@gmail.com
 Starting Date: January 2021
+Updated here
 """
 
 from flask import Flask, render_template, redirect, request, url_for
